@@ -84,7 +84,11 @@
 (add-hook 'after-init-hook 'ivy-mode)
 
 (add-hook 'after-init-hook 'which-key-mode)
-(add-hook 'after-init-hook (lambda () (yascroll-bar-mode 1)))
+(add-hook 'after-init-hook (lambda ()
+			     (unless (display-graphic-p)
+			     (yascroll-bar-mode 1)
+			       )
+			     ))
 
 (add-hook 'c-mode-hook 'lsp)
 (add-hook 'c++-mode-hook 'lsp)
